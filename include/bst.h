@@ -14,7 +14,7 @@ class BST {
     };
     Node* root = nullptr;
     int searchNodeTree(Node* root, const T& value) {
-        if (node == nullptr) {
+        if (root == nullptr) {
             return 0;
         } else if (root->val > value) {
             return searchNodeTree(root->l, value);
@@ -47,16 +47,16 @@ class BST {
         }
         return root;
     }
- 
+
  public:
     int search(const T& value) {
-        return searchNodeTree(node, value);
+        return searchNodeTree(root, value);
     }
     int depth() {
         return getDepthTree(root) - 1;
     }
     void newNode(const T& value) {
-        node = newNodeTree(root, value);
+        root = newNodeTree(root, value);
     }
 };
 
