@@ -47,6 +47,7 @@ class BST {
         }
         return root;
     }
+ 
  public:
     int search(const T& value) {
         return searchNodeTree(node, value);
