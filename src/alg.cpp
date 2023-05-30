@@ -1,5 +1,4 @@
 // Copyright 2021 NNTU-CS
-#include <fstream>
 #include  "bst.h"
 
 BST<std::string> makeTree(const char* filename) {
@@ -7,7 +6,7 @@ BST<std::string> makeTree(const char* filename) {
     BST<std::string> tree;
     std::string text;
     if (file) {
-        while (file.eof() != 0) {
+        while (!file.eof()) {
             text.erase();
             while (true) {
                 char chr = file.get();
@@ -20,10 +19,10 @@ BST<std::string> makeTree(const char* filename) {
                     break;
                 }
             }
-            if (text.empty()) {
-                continue;
-            } else {
+            if (!text.empty()) {
                 tree.newNode(text);
+            } else {
+                continue;
             }
         }
         file.close();
