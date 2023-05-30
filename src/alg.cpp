@@ -11,8 +11,7 @@ BST<std::string> makeTree(const char* filename) {
             while (true) {
                 char chr = file.get();
                 if (chr >= 'A' && chr < 'Z') {
-                    chr += 32;
-                    text += chr;
+                    text += tolower(chr);
                 } else if (chr >= 'a' && chr <= 'z') {
                     text += chr;
                 } else {
