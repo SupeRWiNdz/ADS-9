@@ -1,6 +1,6 @@
 // Copyright 2021 NNTU-CS
-#include  "bst.h"
 #include <fstream>
+#include  "bst.h"
 
 BST<std::string> makeTree(const char* filename) {
     std::ifstream file(filename);
@@ -12,7 +12,7 @@ BST<std::string> makeTree(const char* filename) {
             while (true) {
                 char chr = file.get();
                 if (chr >= 'A' && chr < 'Z') {
-                    chr = tolower(chr);
+                    chr += 32;
                     text += chr;
                 } else if (chr >= 'a' && chr <= 'z') {
                     text += chr;
