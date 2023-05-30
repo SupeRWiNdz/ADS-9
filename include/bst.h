@@ -13,23 +13,23 @@ class BST {
         Node* r;
     };
     Node* root = nullptr;
-    int searchNodeTree(Node* node, const T& value) {
+    int searchNodeTree(Node* root, const T& value) {
         if (node == nullptr) {
             return 0;
-        } else if (node->val > value) {
-            return searchNodeTree(node->l, value);
-        } else if (node->val < value) {
-            return searchNodeTree(node->r, value);
+        } else if (root->val > value) {
+            return searchNodeTree(root->l, value);
+        } else if (root->val < value) {
+            return searchNodeTree(root->r, value);
         } else {
-            return node->count;
+            return root->count;
         }
         return 0;
     }
-    int getDepthTree(Node* node) {
-        if (node == nullptr)
+    int getDepthTree(Node* root) {
+        if (root == nullptr)
             return 0;
-        int rDepth = getDepthTree(node->r),
-            lDepth = getDepthTree(node->l);
+        int rDepth = getDepthTree(root->r),
+            lDepth = getDepthTree(root->l);
         return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
     }
     Node* newNodeTree(Node* root, const T& value) {
@@ -53,10 +53,10 @@ class BST {
         return searchNodeTree(node, value);
     }
     int depth() {
-        return getDepthTree(node) - 1;
+        return getDepthTree(root) - 1;
     }
     void newNode(const T& value) {
-        node = newNodeTree(node, value);
+        node = newNodeTree(root, value);
     }
 };
 
