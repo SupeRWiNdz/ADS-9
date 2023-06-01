@@ -19,7 +19,6 @@ BST<std::string> makeTree(const char* filename) {
             }
             if (!text.empty())
                 tree.newNode(text);
-        }
         file.close();
     } else {
         std::cout << "File error!" << std::endl;
