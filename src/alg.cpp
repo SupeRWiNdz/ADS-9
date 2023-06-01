@@ -10,17 +10,15 @@ BST<std::string> makeTree(const char* filename) {
             text.erase();
             while (true) {
                 char chr = file.get();
-                if (chr >= 'A' && chr < 'Z') {
+                if (chr >= 'A' && chr < 'Z'
+                   || chr >= 'a' && chr <= 'z')
                     text += tolower(chr);
-                } else if (chr >= 'a' && chr <= 'z') {
-                    text += chr;
-                } else {
+                else
                     break;
                 }
             }
-            if (!text.empty()) {
+            if (!text.empty())
                 tree.newNode(text);
-            }
         }
         file.close();
     } else {
